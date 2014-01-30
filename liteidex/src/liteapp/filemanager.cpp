@@ -728,6 +728,13 @@ void FileManager::checkForReload()
                 continue;
             }
 
+            //Georges Varouchas - 2014-01-29
+            //using  Ubuntu 13.04, Qt 5.1.1
+            //bug: for some unknown reason, the file is not watched by m_fileWatcher anymore
+            //  added back here
+            m_fileWatcher->addPath(fileName);
+
+
             // The file has been modified.
             // If the buffer is modified, ask the user what he wants to do.
             // Otherwise, apply the default action : reload the new content in the editor.
